@@ -12,6 +12,11 @@ import java.time.LocalDateTime
 @Entity
 @Table(name = "warehouse_inventory")
 class Inventory(
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val seq: Long? = null,
+
     @Column(nullable = false, length = 100)
     val sku: String,
 
@@ -39,9 +44,6 @@ class Inventory(
     val unit: String? = null,
 
     @Column(nullable = false)
-    val updatedAt: LocalDateTime = LocalDateTime.now(),
+    val updatedAt: LocalDateTime = LocalDateTime.now()
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val seq: Long? = null,
 )
